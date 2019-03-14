@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<form action="{% url 'Todo:editTodo' %}" method="post" class="form-inline">
+		{% csrf_token %}
+		<input type="hidden" value="{{ tid }}" name="tid"/>
+	<input type="text" class="form-control" name="task" value="{{ todo.task }}"/><br/>
+	<input type="textarea" class="form-control" name="description" value="{{ todo.description }}"/><br/>
+	<input type="datetime-local" class="form-control" name="time" value="{{ time }}"/><br/>
+	<button type="submit" class="btn btn-primary">Save</button>
+	</form>
+	<hr/>
+
+</body>
+</html>
